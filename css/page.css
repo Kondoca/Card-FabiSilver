@@ -1,0 +1,119 @@
+/* Fabi Silver: estilos próprios da página, só o que o sistema em assets/ não cobre. */
+
+/* monograma da cliente ao lado do nome: só as letras "fb" no menu, a marca inteira no rodapé */
+.nav__logo img.brand-mark { height: 40px; width: auto; margin-right: 2px; }
+.footer .nav__logo.footer__brand { font-size: 40px; }
+.footer .nav__logo.footer__brand img.brand-mark { height: 56px; }
+@media (max-width: 639px) {
+  .nav__logo img.brand-mark { height: 34px; }
+  .footer .nav__logo.footer__brand { font-size: 30px; }
+  .footer .nav__logo.footer__brand img.brand-mark { height: 44px; }
+}
+
+/* serviços: a foto com a altura que cabe numa tela */
+.services__photo { --ratio: 108%; }
+.services .rows { margin-bottom: var(--s-6); }
+.services .rows p { margin: var(--s-1) 0 0; }
+/* tablet: lista e foto lado a lado, para a seção caber em uma tela */
+@media (min-width: 640px) and (max-width: 1023px) {
+  #servicos .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #servicos .grid > * { grid-column: auto; }
+  .services__photo { --ratio: 195%; }
+}
+@media (max-width: 639px) { .services__photo { --ratio: 80%; margin-top: var(--s-6); } }
+
+/* galeria: três por linha a partir de 640px, duas no celular */
+@media (max-width: 639px) {
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery > .span-4 { grid-column: auto; }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gallery > .span-4 { grid-column: auto; }
+}
+
+/* sobre: retrato e nome abaixo do texto */
+.about__person { margin-top: var(--s-7); gap: var(--s-4); }
+.about__person img.about__photo { width: 88px; height: 88px; }
+.about__person > span { display: grid; gap: var(--s-1); }
+.about__person .person__name { font: var(--display-weight) var(--t-lead)/1.2 var(--font-display); }
+.about__person .person__role { color: var(--muted); font-size: var(--t-small); }
+@media (max-width: 639px) { .about__person img.about__photo { width: 72px; height: 72px; } }
+
+/* links de contato com seus ícones */
+.contact__icon { width: 20px; height: 20px; flex: none; }
+.footer .contact a { display: inline-flex; align-items: center; gap: var(--s-3); min-height: 44px; }
+.actionbar .btn { gap: var(--s-3); }
+
+/* o título da galeria mantém o espaço padrão antes das fotos */
+#trabalhos .section-head--split { margin-bottom: var(--head-gap); }
+
+/* contorno de foco na cor do texto: o rose gold tem contraste abaixo de 3:1 no fundo claro */
+:focus-visible { outline-color: var(--ink); }
+
+/* abertura: o botão secundário (link) alinha com o texto quando quebra de linha (1024 a 1279px) */
+html .hero .btn--secondary, html #trabalhos .section-head--split > .btn--secondary { padding-inline-start: 0; }
+
+/* galeria abaixo de 1024px: no tablet as seis fotos cabem em uma tela, três por linha; no celular
+   ficam duas telas, cada grupo com uma foto larga sobre duas lado a lado */
+@media (min-width: 640px) and (max-width: 1023px) {
+  #trabalhos { --h: 1; }
+  #trabalhos > .wrap { display: block; }
+  #trabalhos .gallery + .gallery, #trabalhos .group + .gallery { margin-top: var(--s-5); }
+}
+@media (max-width: 639px) {
+  #trabalhos .section-head--split > .btn { width: 100%; }
+  #trabalhos .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #trabalhos .gallery > .span-4 { grid-column: auto; --ratio: 100%; }
+  #trabalhos .gallery > .span-4:first-child { grid-column: 1 / -1; --ratio: 55%; }
+}
+
+/* serviços no celular: a lista na primeira tela, a foto ocupando a segunda */
+@media (max-width: 639px) {
+  #servicos .grid { display: contents; }
+  #servicos .services__photo { --ratio: 0px; margin-top: 0; align-self: stretch; height: 100%; }
+}
+
+/* rodapé abaixo de 1024px: a marca numa linha, depois navegação e contatos; o celular esconde a
+   navegação (ela já está no menu) para caber em uma tela; contatos longos quebram linha em 320px */
+@media (max-width: 1023px) {
+  .footer .nav__logo.footer__brand { font-size: 32px; }
+  .footer .nav__logo.footer__brand img.brand-mark { height: 44px; }
+  .footer .footer__lede { display: none; }
+  .footer .footer__nav-col { grid-column: 1 / span 6; }
+  .footer .footer__contact { grid-column: 7 / -1; }
+}
+@media (max-width: 639px) {
+  .footer .footer__nav-col { display: none; }
+  .footer .grid > .span-4.stack-4, .footer .footer__contact { grid-column: 1 / -1; }
+}
+.footer .contact a { overflow-wrap: anywhere; }
+@media (max-width: 359px) { .closing__cta .btn--xl { font-size: var(--t-body); padding-inline: var(--s-4); } }
+
+/* modo noturno: o "fb" do menu troca de grafite para rose gold */
+.nav__logo img.brand-mark--escuro { display: none; }
+:root[data-theme="dark"] .nav__logo img.brand-mark--claro { display: none; }
+:root[data-theme="dark"] .nav__logo img.brand-mark--escuro { display: block; }
+
+/* botão de tema: o mesmo visual do botão de menu, área de toque de 44px */
+.theme-toggle {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; flex: none; padding: 0;
+  border: 1px solid var(--line-strong); border-radius: var(--r-btn); background: transparent; color: var(--ink); cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--ink); }
+.theme-toggle svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.theme-toggle__sol { display: none; }
+:root[data-theme="dark"] .theme-toggle__lua { display: none; }
+:root[data-theme="dark"] .theme-toggle__sol { display: block; }
+
+/* tablet e celular: o grupo de ações mostra o botão de tema ao lado do menu; no celular o botão de
+   agendar sai do topo (ele fica na barra fixa de baixo) e o de tema continua visível */
+@media (max-width: 1023px) {
+  .nav:not(.is-open) .nav__actions > .theme-toggle { display: inline-grid; }
+  .nav.is-open .theme-toggle { display: none; }
+}
+@media (max-width: 639px) {
+  :root:has(> body > nav.actionbar) .nav:not(.is-open) .nav__actions { display: flex; margin-left: auto; }
+  :root:has(> body > nav.actionbar) .nav:not(.is-open) .nav__actions > .btn--primary { display: none; }
+  :root:has(> body > nav.actionbar) .nav:not(.is-open) .nav__toggle { margin-left: 0; }
+}
