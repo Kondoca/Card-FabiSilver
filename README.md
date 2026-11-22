@@ -2,10 +2,29 @@
 
 Página única, estática (HTML, CSS e JavaScript), sem build e sem dependências.
 
+## Como ficou
+
+**Abertura no computador (modo claro)**
+
+![Abertura do site no computador, modo claro](docs/desktop-claro.jpg)
+
+**Abertura no computador (modo noturno)**
+
+![Abertura do site no computador, modo noturno](docs/desktop-escuro.jpg)
+
+**Galeria de trabalhos**
+
+![Galeria com seis fotos de unhas feitas pela Fabi](docs/galeria.jpg)
+
+**No celular, modo claro e noturno**
+
+<img src="docs/celular.jpg" alt="Abertura do site no celular, nos modos claro e noturno" width="600">
+
 ## Estrutura
 
 ```
 index.html            a página
+docs/                 imagens usadas neste README
 css/page.css          estilos próprios da página (inclui o modo noturno)
 js/tema.js            botão de modo claro / noturno
 assets/               sistema de design: tokens, grid, botões, menu, animações e o efeito de rolagem da seção Sobre
