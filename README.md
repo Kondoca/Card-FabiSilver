@@ -1,5 +1,7 @@
 # Fabi Silver | Nails Designer: cartão digital
 
+**Site no ar:** https://kondoca.github.io/Card-FabiSilver/
+
 Página única, estática (HTML, CSS e JavaScript), sem build e sem dependências.
 
 ## Como ficou
