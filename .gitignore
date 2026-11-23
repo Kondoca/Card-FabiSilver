@@ -1,3 +1,18 @@
 node_modules/
 .taste-skill/
 shots/
+
+# Ruflo local secrets and runtime data
+.env
+.env.local
+.env.*.local
+.claude-flow/data/
+.claude-flow/logs/
+.claude-flow/sessions/
+
+# Ruflo: configuração e dados locais, fora do repositório (a pasta é publicada no GitHub Pages)
+.claude/
+.claude-flow/
+.swarm/
+.mcp.json
+CLAUDE.md
